@@ -12,7 +12,7 @@ import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 
-import config from './webpack.config'
+import config from './node_modules/react-scripts/config/webpack.config' 
 
 const app = express()
 const server = Server(app)
