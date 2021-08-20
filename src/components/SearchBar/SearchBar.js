@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Input from './Input'
-import Dropdown from './Dropdown'
+import Dropdowns from './Dropdown'
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -27,16 +27,15 @@ export default class SearchBar extends Component {
         </li>
       );
     });
-
-    return(
+  return(
       <div className="search input-group">
-        <Dropdown
+        <Dropdowns
         favoritesList={favoritesList}
         selectedCity={selectedCity}
         />
         <Input 
         cities={ cities }
-         onSelect={ city => onSelect(city) }
+        onSelect={ city => onSelect(city) }
          />
         <span className="input-group-btn">
           <button className="btn btn-default" type="button" onClick={ () => onClick() }>{'Search'}</button>

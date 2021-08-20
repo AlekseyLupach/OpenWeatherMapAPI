@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {typeDate, forecastOptions} from '../../../constants'
-import LocalStorageService from '../../../../storage-service'
+import LocalStorageService from '../../../storage-service'
 
 export default class WeatherInfoHeader extends Component {
 

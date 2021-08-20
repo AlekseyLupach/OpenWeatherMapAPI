@@ -5,8 +5,8 @@ export default class SunriseSunset extends React.Component {
   render() {
     const { value, src } = this.props
     return (
-       <div className={"info-block-additional-item-sun"}>
-            <img src={src} className="additional-icon-size" />
+       <div className={'info-block-additional-item-sun'}>
+            <img src={src} className='additional-icon-size' />
             {value}
        </div>
     )

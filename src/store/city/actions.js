@@ -48,7 +48,7 @@ function receiveCities(cities) {
 export function fetchCities() {
   return dispatch => {
     dispatch(requestCities())
-    return fetch('/api/cities')
+    return fetch('http://localhost:3001/api/cities')
       .then(response => response.json())
       .then(json => dispatch(receiveCities(json)))
   }

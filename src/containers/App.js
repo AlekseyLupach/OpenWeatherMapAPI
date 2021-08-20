@@ -6,6 +6,8 @@ import SearchBar from '../components/SearchBar/SearchBar'
 import * as weatherActions from '../store/weatherByCity/actions'
 import ForecastInfo from '../components/ForcastWeather /ForecastInfo'
 import WeatherInfo from '../components/ForcastWeather /WeatherInfo/WeatherInfo'
+import '../static/css/style.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
@@ -76,7 +78,6 @@ class App extends Component {
 
 function mapStateToProps(state) {
   const { city } = state
-
   if(!city.cities) return {
     ...state,
     cities: {

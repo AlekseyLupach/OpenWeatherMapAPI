@@ -32,11 +32,11 @@ export default class WeatherMainInfo extends React.Component {
             />
             <div className="info-block-additional-item">
                 <SunriseSunset
-                    src={"/img/Sunrise.svg"}
+                    src={'/img/Sunrise.svg'}
                     value={new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}
                 />
                 <SunriseSunset
-                    src={"/img/Sunset.svg"}
+                    src={'/img/Sunset.svg'}
                     value={new Date(weather.sys.sunset * 1000).toLocaleTimeString()}
                 />
             </div>
