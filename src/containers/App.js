@@ -16,17 +16,19 @@ class App extends Component {
 
     var favorites = JSON.parse(localStorage.getItem('favorites')) || []
     this.props.cityActions.loadFavoritesList(favorites)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleSearch() {
-    var { selectedCity } = this.props.city
-    var cityName = document.getElementById('city').value
-    const { fetchWeatherById,  fetchWeatherByName} = this.props.weatherActions
+    let { selectedCity, inputText } = this.props.city
+    // var inputText = document.getElementById('city').value
+    const { fetchWeatherById, fetchWeatherByName } = this.props.weatherActions
 
-    if(selectedCity && (selectedCity.name.toLowerCase() != cityName.toLowerCase()))
-      selectedCity = undefined
-
-    selectedCity ? fetchWeatherById(selectedCity) : fetchWeatherByName(cityName)
+    if (selectedCity !== undefined && selectedCity.name === inputText) {
+      fetchWeatherById(selectedCity)
+    } else {
+      fetchWeatherByName(inputText || '')
+    }
   }
 
   handleForecast(e) {
@@ -35,21 +37,23 @@ class App extends Component {
 
   render() {
     const { weather, error, forecast } = this.props.weatherByCity
-    const { isFetching, cities, selectedCity, favorites } = this.props.city
+    const { isFetching, cities, selectedCity, favorites, inputText } = this.props.city
     return (
       <div className="container">
 
         { isFetching &&
-          <img src="/img/loading.gif" className="loading-icon-position"/>
+          <img src="/images/loading.gif" className="loading-icon-position"/>
         }
 
         { !isFetching && cities &&
           <SearchBar
-            cities={ cities }
-            favorites={ favorites }
-            selectedCity={ selectedCity }
-            onClick = { () => this.handleSearch() }
-            onSelect = { city => this.props.cityActions.selectCity(city) } />
+          cities={cities}
+          favorites={favorites}
+          selectedCity={selectedCity}
+          onClick={this.handleSearch}
+          onSelect={cityActions.selectCity}
+          onChange={cityActions.changeInputText}
+          inputText={inputText || ''}/>
         }
 
         { error &&

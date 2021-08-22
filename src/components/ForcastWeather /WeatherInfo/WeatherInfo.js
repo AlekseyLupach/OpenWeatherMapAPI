@@ -5,7 +5,7 @@ import WeatherInfoHeader from './WeatherInfoHeader'
 export default class WeatherInfo extends Component {
   render() {
     const { weather, selectedCity, favorites, changeFavorites } = this.props
-    const pathToIcon = `/img/${weather.weather[0].main}.svg`
+    const pathToIcon = `/images/${weather.weather[0].main}.svg`
 
     return(
       <div className="info-block">

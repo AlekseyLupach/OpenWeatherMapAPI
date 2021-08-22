@@ -24,6 +24,11 @@ export function city(state = {}, action){
           ...state,
           favorites: action.favorites
         }
+        case types.CHANGE_INPUT_TEXT:
+          return {
+            ...state,
+            inputText: action.text,
+          }
       default:
         return state
     }

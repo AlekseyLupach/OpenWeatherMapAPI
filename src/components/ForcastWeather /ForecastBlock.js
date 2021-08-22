@@ -7,7 +7,7 @@ import {periodsDay, degreesIcon, forecastOptions, pressureValue, humidityValue, 
 export default class ForecastBlock extends Component {
   render() {
     const { weather } = this.props
-    const pathToIcon = `/img/${weather.weather[0].main}.svg`
+    const pathToIcon = `/images/${weather.weather[0].main}.svg`
 
     return (
       <div className='info-block'>
@@ -22,15 +22,15 @@ export default class ForecastBlock extends Component {
           <div className='info-block-additional info-block-additional-second'>
             <ParametrsForecastWeather
               description={weather.pressure + pressureValue}
-              src={'/img/Pressure.svg'}
+              src={'/images/Pressure.svg'}
             />
             <ParametrsForecastWeather
               description={weather.humidity + humidityValue}
-              src={'/img/Humidity.svg'}
+              src={'/images/Humidity.svg'}
             />
             <ParametrsForecastWeather
               description={weather.speed + speedValue}
-              src={'/img/Wind.svg'}
+              src={'/images/Wind.svg'}
             />
           </div>
         </div>

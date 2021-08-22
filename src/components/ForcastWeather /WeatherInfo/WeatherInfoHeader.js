@@ -33,8 +33,8 @@ export default class WeatherInfoHeader extends Component {
           <div className="info-block-header-left-place">
             <span>{weather.name}{', '} {weather.sys.country} </span>
 
-            { !isFavorite ? <img src="/img/Favorites-Add.svg" className="icon-fav" onClick={ () => this.handleClickAdd() } />
-            : <img src="/img/Favorites-Remove.svg" className="icon-fav" onClick={ () => this.handleClickRemove() } /> }
+            { !isFavorite ? <img src="/images/Favorites-Add.svg" className="icon-fav" onClick={ () => this.handleClickAdd() } />
+            : <img src="/images/Favorites-Remove.svg" className="icon-fav" onClick={ () => this.handleClickRemove() } /> }
 
           </div>
           <div className="info-block-header-left-date">
