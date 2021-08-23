@@ -20,23 +20,23 @@ export default class WeatherMainInfo extends React.Component {
           <div className="info-block-additional info-block-additional-second">
             <ParametrsForecastWeather
               description={weather.main.pressure + pressureValue}
-              src={'/img/Pressure.svg'}
+              src={'/images/Pressure.svg'}
             />
             <ParametrsForecastWeather
               description={weather.main.humidity + humidityValue}
-              src={'/img/Humidity.svg'}
+              src={'/images/Humidity.svg'}
             />            
             <ParametrsForecastWeather
                 description={weather.wind.speed + speedValue}
-                src={'/img/Wind.svg'}
+                src={'/images/Wind.svg'}
             />
             <div className="info-block-additional-item">
                 <SunriseSunset
-                    src={'/img/Sunrise.svg'}
+                    src={'/images/Sunrise.svg'}
                     value={new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}
                 />
                 <SunriseSunset
-                    src={'/img/Sunset.svg'}
+                    src={'/images/Sunset.svg'}
                     value={new Date(weather.sys.sunset * 1000).toLocaleTimeString()}
                 />
             </div>

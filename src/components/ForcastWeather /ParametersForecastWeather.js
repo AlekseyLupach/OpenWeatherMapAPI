@@ -6,7 +6,7 @@ export default class ParametrsForecastWeather extends React.Component {
       const { src, description } = this.props
       return (
         <div className='info-block-additional-item'>
-          <img src={src} className='additional-icon-size' />
+          <img src={process.env.PUBLIC_URL + src} className='additional-icon-size' />
           {description} 
         </div>
       );

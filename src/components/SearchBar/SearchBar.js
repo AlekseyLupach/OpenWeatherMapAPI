@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Input from './Input'
 import Dropdowns from './Dropdown'
+import { Button, Dropdown } from 'react-bootstrap';
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -10,37 +10,43 @@ export default class SearchBar extends Component {
 
   handleClick(city) {
     const { onClick } = this.props
-    document.getElementById('city').value = city.name
 
+    document.getElementById('city').value = city.name
+    
     onClick()
   }
-
+  
   render(){
-    const { onClick, cities, onSelect, selectedCity, favorites } = this.props
+    const {  
+      onClick,
+      selectedCity,
+      favorites, 
+    } = this.props
     let self = this
+
     let favoritesList = favorites.map(function (city) {
       return (
         <li key={city.id}>
-          <a href="#" onClick={() => self.handleClick(city)}>
-            {city.name}
-          </a>
+          <Dropdown.Item onClick={() => self.handleClick(city)}>
+              {city.name}
+          </Dropdown.Item>
         </li>
       );
     });
-  return(
-      <div className="search input-group">
-        <Dropdowns
-        favoritesList={favoritesList}
-        selectedCity={selectedCity}
-        />
-        <Input 
-        cities={ cities }
-        onSelect={ city => onSelect(city) }
-         />
-        <span className="input-group-btn">
-          <button className="btn btn-default" type="button" onClick={ () => onClick() }>{'Search'}</button>
-        </span>
-      </div>
-    )
+
+  return (
+    <div className="search input-group">
+      <Dropdowns favoritesList={favoritesList} selectedCity={selectedCity}  />
+      <input
+        className="typeahead form-control"
+        type="text"
+        placeholder="Search for..."
+        id="city"
+      />
+      <Button variant="outline-secondary" onClick={() => onClick()}>
+        {'Search'}
+      </Button>
+    </div>
+  );
   }
 }

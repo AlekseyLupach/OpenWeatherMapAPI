@@ -12,21 +12,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
 
   componentDidMount() {
-    this.props.cityActions.fetchCities()
+    const { fetchCities, loadFavoritesList } = this.props.cityActions
+    fetchCities()
 
-    var favorites = JSON.parse(localStorage.getItem('favorites')) || []
-    this.props.cityActions.loadFavoritesList(favorites)
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || []
+    loadFavoritesList(favorites)
+    this.handleSearch = this.handleSearch.bind(this)
+    this.handleForecast = this.handleForecast.bind(this)
   }
 
   handleSearch() {
-    var { selectedCity } = this.props.city
-    var cityName = document.getElementById('city').value
-    const { fetchWeatherById,  fetchWeatherByName} = this.props.weatherActions
+    let { selectedCity } = this.props.city
+    var inputText = document.getElementById('city').value
+    const { fetchWeatherById, fetchWeatherByName } = this.props.weatherActions
 
-    if(selectedCity && (selectedCity.name.toLowerCase() != cityName.toLowerCase()))
-      selectedCity = undefined
-
-    selectedCity ? fetchWeatherById(selectedCity) : fetchWeatherByName(cityName)
+    if (selectedCity !== undefined && selectedCity.name === inputText) {
+      fetchWeatherById(selectedCity)
+    } else {
+      fetchWeatherByName(inputText || '')
+    }
   }
 
   handleForecast(e) {
@@ -40,16 +44,17 @@ class App extends Component {
       <div className="container">
 
         { isFetching &&
-          <img src="/img/loading.gif" className="loading-icon-position"/>
+          <img src="/images/loading.gif" className="loading-icon-position"/>
         }
 
         { !isFetching && cities &&
           <SearchBar
-            cities={ cities }
-            favorites={ favorites }
-            selectedCity={ selectedCity }
-            onClick = { () => this.handleSearch() }
-            onSelect = { city => this.props.cityActions.selectCity(city) } />
+          cities={cities}
+          favorites={favorites}
+          selectedCity={selectedCity}
+          onClick={this.handleSearch}
+          onSelect={cityActions.selectCity}
+          />
         }
 
         { error &&

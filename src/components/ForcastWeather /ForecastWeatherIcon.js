@@ -8,7 +8,7 @@ export default class ForecastWeatherIcon extends React.Component {
       return (
         <span>
           <div className="forecast-block-content-temperature">
-            <img src={pathToIcon} className="weather-icon-size" />
+            <img src={process.env.PUBLIC_URL + pathToIcon} className="weather-icon-size" />
             {temp && (
               <span>
                 {temp}
