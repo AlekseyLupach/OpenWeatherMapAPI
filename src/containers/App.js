@@ -23,6 +23,7 @@ class App extends Component {
     loadFavoritesList(favorites);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleForecast = this.handleForecast.bind(this);
+    this.handleLanguage = this.handleLanguage.bind(this);
   }
 
   handleSearch() {
@@ -84,8 +85,8 @@ class App extends Component {
                 inputValue={inputValue || ""}
                 onLanguageChange={(lang) => i18n.changeLanguage(lang)}
                 onClickLanguage={
-                  (forecast && ((e) => this.handleLanguage(e)))
-                  || (weather && ((e) => this.handleLanguage(e)))
+                  (forecast && (this.handleLanguage))
+                  || (weather && (this.handleLanguage))
                 }
               />
             )}
@@ -102,7 +103,7 @@ class App extends Component {
                 selectedCity={selectedCity}
                 favorites={favorites}
                 changeFavorites={cityActions.changeFavorites}
-                onClick={(e) => this.handleForecast(e)}
+                onClick={this.handleForecast}
                 onLanguageChange={(lang) => i18n.changeLanguage(lang)}
               />
             )}
@@ -111,7 +112,7 @@ class App extends Component {
               <ForecastInfo
                 days={forecast.list}
                 cityName={forecast.city.name}
-                onClick={() => this.handleSearch()}
+                onClick={this.handleSearch}
                 onLanguageChange={(lang) => i18n.changeLanguage(lang)}
               />
             )}
