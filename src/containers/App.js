@@ -1,8 +1,4 @@
 /* eslint-disable no-shadow */
-<<<<<<< HEAD
-=======
-import { Translation } from "react-i18next";
->>>>>>> f967c21cfea217b87acd131b289e6d056520a639
 import "../static/css/style.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -14,11 +10,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import * as weatherActions from "../store/weatherByCity/actions";
 import ForecastInfo from "../components/ForcastWeather/ForecastInfo";
 import WeatherInfo from "../components/ForcastWeather/WeatherInfo/WeatherInfo";
-<<<<<<< HEAD
 import i18next from "../services/i18n";
-=======
-import i18next from '../services/i18n';
->>>>>>> f967c21cfea217b87acd131b289e6d056520a639
 
 class App extends Component {
   componentDidMount() {
@@ -48,15 +40,11 @@ class App extends Component {
 
   handleForecast(e) {
     const { weatherActions, city } = this.props;
-<<<<<<< HEAD
     weatherActions.fetchForecast(
       city.selectedCity,
       e.target.id,
       i18next.language,
     );
-=======
-    weatherActions.fetchForecast(city.selectedCity, e.target.id, i18next.language);
->>>>>>> f967c21cfea217b87acd131b289e6d056520a639
   }
 
   handleLanguage(e) {
@@ -67,15 +55,11 @@ class App extends Component {
       weatherActions.fetchWeatherById(city.selectedCity, e.target.value);
     }
     if (forecast) {
-<<<<<<< HEAD
       weatherActions.fetchForecast(
         city.selectedCity,
         forecast.cnt,
         e.target.value,
       );
-=======
-      weatherActions.fetchForecast(city.selectedCity, forecast.cnt, e.target.value);
->>>>>>> f967c21cfea217b87acd131b289e6d056520a639
     }
   }
 
@@ -86,7 +70,6 @@ class App extends Component {
       isFetching, cities, selectedCity, favorites, inputValue,
     } = city;
     return (
-<<<<<<< HEAD
       <div className="container">
         {isFetching && (
           <img
@@ -107,8 +90,8 @@ class App extends Component {
             inputValue={inputValue || ""}
             onLanguageChange={(lang) => i18next.changeLanguage(lang)}
             onClickLanguage={
-              (forecast && ((e) => this.handleLanguage(e)))
-              || (weather && ((e) => this.handleLanguage(e)))
+              (forecast && (this.handleLanguage))
+              || (weather && (this.handleLanguage))
             }
           />
         )}
@@ -139,64 +122,6 @@ class App extends Component {
           />
         )}
       </div>
-=======
-      <Translation>
-        {(t, { i18n }) => (
-          <div className="container">
-            {isFetching && (
-              <img
-                src="/images/loading.gif"
-                className="loading-icon-position"
-                alt="loading"
-              />
-            )}
-
-            {!isFetching && cities && (
-              <SearchBar
-                cities={cities}
-                favorites={favorites}
-                selectedCity={selectedCity}
-                onClick={this.handleSearch}
-                onSelect={cityActions.selectCity}
-                onChange={cityActions.changeSearchInput}
-                inputValue={inputValue || ""}
-                onLanguageChange={(lang) => i18n.changeLanguage(lang)}
-                onClickLanguage={
-                  (forecast && (this.handleLanguage))
-                  || (weather && (this.handleLanguage))
-                }
-              />
-            )}
-
-            {error && (
-              <div className="alert alert-danger alert-margin" role="alert">
-                {error}
-              </div>
-            )}
-
-            {weather && (
-              <WeatherInfo
-                weather={weather}
-                selectedCity={selectedCity}
-                favorites={favorites}
-                changeFavorites={cityActions.changeFavorites}
-                onClick={this.handleForecast}
-                onLanguageChange={(lang) => i18n.changeLanguage(lang)}
-              />
-            )}
-
-            {forecast && (
-              <ForecastInfo
-                days={forecast.list}
-                cityName={forecast.city.name}
-                onClick={this.handleSearch}
-                onLanguageChange={(lang) => i18n.changeLanguage(lang)}
-              />
-            )}
-          </div>
-        )}
-      </Translation>
->>>>>>> f967c21cfea217b87acd131b289e6d056520a639
     );
   }
 }
