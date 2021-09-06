@@ -1,0 +1,13 @@
+{
+  "placeholder": "Введите город",
+  "Search": "Поиск",
+  "DropdownText": "Добавьте город в избранное, нажав на иконку",
+  "ForecastFor":"Погода на ",
+  "DayIn": " дня в ",
+  "DaysIn": " дней в ",
+  "BackToCurrentWeather": "Вернуться к текущей погоде",
+  "day": "дня",
+  "days": "дней",
+  "Forecast": "Погода на: ",
+  "typeDate": "ru-RU"
+}
