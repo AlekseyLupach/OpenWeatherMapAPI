@@ -1,5 +1,8 @@
 {
+<<<<<<< HEAD
   "placeholder": "Enter the city",
+=======
+>>>>>>> f967c21cfea217b87acd131b289e6d056520a639
   "Search": "Search",
   "DropdownText": "Add city to favorites by clicking icon by near",
   "ForecastFor": " Forecast for ",
