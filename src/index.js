@@ -7,9 +7,7 @@ import configureStore from "./store";
 const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
-    <React.Suspense fallback="Loading...">
-      <App />
-    </React.Suspense>
+    <App />
   </Provider>,
   document.getElementById("root"),
 );

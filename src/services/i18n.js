@@ -32,6 +32,9 @@ i18next
     },
 
     debug: process.env.NODE_ENV === "development",
+    react: {
+      useSuspense: false,
+    },
   });
 
 export default i18next;

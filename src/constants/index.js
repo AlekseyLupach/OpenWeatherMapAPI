@@ -4,7 +4,6 @@ export const forecastOptions = {
   day: "numeric",
   hour: "numeric",
   minute: "numeric",
-  second: "numeric",
 };
 
 export const periodsDay = {

@@ -83,7 +83,7 @@ class SearchBar extends Component {
           renderSuggestionsContainer={this.renderSuggestionUl}
           inputProps={inputProps}
         />
-        <Button variant="outline-secondary" onClick={onClick}>
+        <Button className="search-btn" variant="outline-secondary" onClick={onClick}>
           {t("Search")}
         </Button>
         <LanguageSwitcher

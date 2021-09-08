@@ -70,7 +70,7 @@ class App extends Component {
       isFetching, cities, selectedCity, favorites, inputValue,
     } = city;
     return (
-      <div className="container">
+      <div className="container" id="container">
         {isFetching && (
           <img
             src="/images/loading.gif"
